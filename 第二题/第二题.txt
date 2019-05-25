@@ -1,0 +1,28 @@
+1：
+a = [1, 2, 3, 1, 2, 3]
+i = 0
+while i != len(a):
+	if a[i] in a[:i]:
+		a.pop(i)
+		i = i - 1
+	else:
+		i = i + 1
+print(a)
+
+2：
+import tensorflow as tf
+w = tf.Variable(tf.random_normal([100, 1]))
+with tf.Session() as sess:
+	sess.run(tf.global_variables_initializer())
+	a = sess.run(w)
+	print("平均值" + str(sess.run(tf.reduce_mean(w))))
+	print("最大值" + str(a[sess.run(tf.math.argmax(w, 0))]))
+	print("最小值" + str(a[sess.run(tf.math.argmin(w, 0))]))
+
+3：
+a = [1, 2, 3, 4]
+for i in a:
+	for j in a:
+		for k in a:
+			if i != j and j != k and i != k:
+				print(100 * i + 10 * j + k)
